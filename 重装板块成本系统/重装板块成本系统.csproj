@@ -1,0 +1,564 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C5CAA601-25DF-441B-9D31-244850B9491E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>重装板块成本系统</RootNamespace>
+    <AssemblyName>重装板块成本系统</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dal\import_excel.cs" />
+    <Compile Include="dal\OtherCostDal.cs" />
+    <Compile Include="dal\SqlHelper.cs" />
+    <Compile Include="dal\其他费用表DAL.cs" />
+    <Compile Include="dal\原始凭证DAL.cs" />
+    <Compile Include="dal\在制品DAL.cs" />
+    <Compile Include="dal\工号台时表DAL.cs" />
+    <Compile Include="dal\工号表DAL.cs" />
+    <Compile Include="dal\工时帐DAL.cs" />
+    <Compile Include="dal\成品库房DAL.cs" />
+    <Compile Include="dal\材质类别表DAL.cs" />
+    <Compile Include="dal\每月完工工号表DAL.cs" />
+    <Compile Include="dal\每月收入DAL.cs" />
+    <Compile Include="dal\用户表DAL.cs" />
+    <Compile Include="dal\调整费用分配表DAL.cs" />
+    <Compile Include="dal\费用分配表DAL.cs" />
+    <Compile Include="dal\转出类DAL.cs" />
+    <Compile Include="dal\部门表DAL.cs" />
+    <Compile Include="dal\销售成本结算DAL.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_import_excel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_import_excel.Designer.cs">
+      <DependentUpon>frm_import_excel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_login.Designer.cs">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_maintain_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_maintain_user.Designer.cs">
+      <DependentUpon>frm_maintain_user.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_otherCost.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_otherCost.Designer.cs">
+      <DependentUpon>frm_otherCost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_OtherCostModify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_OtherCostModify.Designer.cs">
+      <DependentUpon>frm_OtherCostModify.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_worknoMaintain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_worknoMaintain.Designer.cs">
+      <DependentUpon>frm_worknoMaintain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_内贸利润表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_内贸利润表.Designer.cs">
+      <DependentUpon>frm_内贸利润表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_内部交易利润表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_内部交易利润表.Designer.cs">
+      <DependentUpon>frm_内部交易利润表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_删除转出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_删除转出.Designer.cs">
+      <DependentUpon>frm_删除转出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_单个工号转出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_单个工号转出.Designer.cs">
+      <DependentUpon>frm_单个工号转出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_原材料明细.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_原材料明细.Designer.cs">
+      <DependentUpon>frm_原材料明细.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_原材料统计.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_原材料统计.Designer.cs">
+      <DependentUpon>frm_原材料统计.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_原材料编辑.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_原材料编辑.Designer.cs">
+      <DependentUpon>frm_原材料编辑.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_外贸利润表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_外贸利润表.Designer.cs">
+      <DependentUpon>frm_外贸利润表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_完工转账总表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_完工转账总表.Designer.cs">
+      <DependentUpon>frm_完工转账总表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_导入工号台时.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_导入工号台时.Designer.cs">
+      <DependentUpon>frm_导入工号台时.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_导出报表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_导出报表.Designer.cs">
+      <DependentUpon>frm_导出报表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_工号工具.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_工号工具.Designer.cs">
+      <DependentUpon>frm_工号工具.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_工时工号修改.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_工时工号修改.Designer.cs">
+      <DependentUpon>frm_工时工号修改.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_工时工号检查.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_工时工号检查.Designer.cs">
+      <DependentUpon>frm_工时工号检查.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_库房信息导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_库房信息导入.Designer.cs">
+      <DependentUpon>frm_库房信息导入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_成品库房List.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_成品库房List.Designer.cs">
+      <DependentUpon>frm_成品库房List.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_成品库房查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_成品库房查询.Designer.cs">
+      <DependentUpon>frm_成品库房查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_成品库房转出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_成品库房转出.Designer.cs">
+      <DependentUpon>frm_成品库房转出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_成品库批量转出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_成品库批量转出.Designer.cs">
+      <DependentUpon>frm_成品库批量转出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_收入导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_收入导入.Designer.cs">
+      <DependentUpon>frm_收入导入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_明细查询.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_明细查询.Designer.cs">
+      <DependentUpon>frm_明细查询.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_更改密码.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_更改密码.Designer.cs">
+      <DependentUpon>frm_更改密码.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_本厂报表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_本厂报表.Designer.cs">
+      <DependentUpon>frm_本厂报表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_材料录入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_材料录入.Designer.cs">
+      <DependentUpon>frm_材料录入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_每月完工工号表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_每月完工工号表.Designer.cs">
+      <DependentUpon>frm_每月完工工号表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_每月完工转出.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_每月完工转出.Designer.cs">
+      <DependentUpon>frm_每月完工转出.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_每月收入列表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_每月收入列表.Designer.cs">
+      <DependentUpon>frm_每月收入列表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_每月费用录入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_每月费用录入.Designer.cs">
+      <DependentUpon>frm_每月费用录入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_统计凭证号.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_统计凭证号.Designer.cs">
+      <DependentUpon>frm_统计凭证号.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_计算费用分配.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_计算费用分配.Designer.cs">
+      <DependentUpon>frm_计算费用分配.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_调整费用分配.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_调整费用分配.Designer.cs">
+      <DependentUpon>frm_调整费用分配.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_重装厂工时导入.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_重装厂工时导入.Designer.cs">
+      <DependentUpon>frm_重装厂工时导入.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_铆焊齿轮成本结算表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_铆焊齿轮成本结算表.Designer.cs">
+      <DependentUpon>frm_铆焊齿轮成本结算表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm_销售成本结算表.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm_销售成本结算表.Designer.cs">
+      <DependentUpon>frm_销售成本结算表.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\frm其它部门费用.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\frm其它部门费用.Designer.cs">
+      <DependentUpon>frm其它部门费用.cs</DependentUpon>
+    </Compile>
+    <Compile Include="model\其他费用表.cs" />
+    <Compile Include="model\原始凭证.cs" />
+    <Compile Include="model\工号台时表.cs" />
+    <Compile Include="model\工号表.cs" />
+    <Compile Include="model\工时帐.cs" />
+    <Compile Include="model\成品库房表.cs" />
+    <Compile Include="model\材质类别表.cs" />
+    <Compile Include="model\每月完工工号表.cs" />
+    <Compile Include="model\每月收入.cs" />
+    <Compile Include="model\用户表.cs" />
+    <Compile Include="model\调整费用分配表.cs" />
+    <Compile Include="model\费用分配表.cs" />
+    <Compile Include="model\转出类.cs" />
+    <Compile Include="model\部门表.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SqlHelper\HelperBase.cs" />
+    <Compile Include="SqlHelper\SqlServerHelper.cs" />
+    <Compile Include="SqlHelper\SqlServerHelper_static.cs" />
+    <Compile Include="usercontrols\ctl_grid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ctl_grid.Designer.cs">
+      <DependentUpon>ctl_grid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usercontrols\ctrl_text.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usercontrols\ctrl_text.designer.cs">
+      <DependentUpon>ctrl_text.cs</DependentUpon>
+    </Compile>
+    <Compile Include="总控窗口.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="总控窗口.Designer.cs">
+      <DependentUpon>总控窗口.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="forms\frm_import_excel.resx">
+      <DependentUpon>frm_import_excel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_login.resx">
+      <DependentUpon>frm_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_maintain_user.resx">
+      <DependentUpon>frm_maintain_user.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_otherCost.resx">
+      <DependentUpon>frm_otherCost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_OtherCostModify.resx">
+      <DependentUpon>frm_OtherCostModify.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_worknoMaintain.resx">
+      <DependentUpon>frm_worknoMaintain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_内贸利润表.resx">
+      <DependentUpon>frm_内贸利润表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_内部交易利润表.resx">
+      <DependentUpon>frm_内部交易利润表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_删除转出.resx">
+      <DependentUpon>frm_删除转出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_单个工号转出.resx">
+      <DependentUpon>frm_单个工号转出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_原材料明细.resx">
+      <DependentUpon>frm_原材料明细.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_原材料统计.resx">
+      <DependentUpon>frm_原材料统计.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_原材料编辑.resx">
+      <DependentUpon>frm_原材料编辑.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_外贸利润表.resx">
+      <DependentUpon>frm_外贸利润表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_完工转账总表.resx">
+      <DependentUpon>frm_完工转账总表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_导入工号台时.resx">
+      <DependentUpon>frm_导入工号台时.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_导出报表.resx">
+      <DependentUpon>frm_导出报表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_工号工具.resx">
+      <DependentUpon>frm_工号工具.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_工时工号修改.resx">
+      <DependentUpon>frm_工时工号修改.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_工时工号检查.resx">
+      <DependentUpon>frm_工时工号检查.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_库房信息导入.resx">
+      <DependentUpon>frm_库房信息导入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_成品库房List.resx">
+      <DependentUpon>frm_成品库房List.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_成品库房查询.resx">
+      <DependentUpon>frm_成品库房查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_成品库房转出.resx">
+      <DependentUpon>frm_成品库房转出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_成品库批量转出.resx">
+      <DependentUpon>frm_成品库批量转出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_收入导入.resx">
+      <DependentUpon>frm_收入导入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_明细查询.resx">
+      <DependentUpon>frm_明细查询.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_更改密码.resx">
+      <DependentUpon>frm_更改密码.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_本厂报表.resx">
+      <DependentUpon>frm_本厂报表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_材料录入.resx">
+      <DependentUpon>frm_材料录入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_每月完工工号表.resx">
+      <DependentUpon>frm_每月完工工号表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_每月完工转出.resx">
+      <DependentUpon>frm_每月完工转出.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_每月收入列表.resx">
+      <DependentUpon>frm_每月收入列表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_每月费用录入.resx">
+      <DependentUpon>frm_每月费用录入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_统计凭证号.resx">
+      <DependentUpon>frm_统计凭证号.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_计算费用分配.resx">
+      <DependentUpon>frm_计算费用分配.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_调整费用分配.resx">
+      <DependentUpon>frm_调整费用分配.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_重装厂工时导入.resx">
+      <DependentUpon>frm_重装厂工时导入.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_铆焊齿轮成本结算表.resx">
+      <DependentUpon>frm_铆焊齿轮成本结算表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm_销售成本结算表.resx">
+      <DependentUpon>frm_销售成本结算表.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="forms\frm其它部门费用.resx">
+      <DependentUpon>frm其它部门费用.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="usercontrols\ctl_grid.resx">
+      <DependentUpon>ctl_grid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usercontrols\ctrl_text.resx">
+      <DependentUpon>ctrl_text.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="总控窗口.resx">
+      <DependentUpon>总控窗口.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bll\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
